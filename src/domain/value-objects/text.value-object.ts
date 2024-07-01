@@ -5,11 +5,11 @@ export class Text extends ValueObject {
     super();
   }
 
-  public static create(text: string): Text {
-    return new Text(text);
+  public static create(text?: string): Text {
+    return new Text(text ?? '');
   }
 
   public getValue(): string {
-    return this.value ?? '';
+    return this.value;
   }
 }
