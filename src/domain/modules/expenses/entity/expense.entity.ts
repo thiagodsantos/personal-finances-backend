@@ -1,6 +1,6 @@
 import { Account } from '@domain/modules/account/entity/account.entity';
 import { Category } from '@domain/modules/category/entity/category.entity';
-import { CustomDate } from '@domain/value-objects/date.value-object';
+import { CustomDate } from '@domain/value-objects/custom-date.value-object';
 import { Flag } from '@domain/value-objects/flag.value-object';
 import { Id } from '@domain/value-objects/id.value-object';
 import { Money } from '@domain/value-objects/money.value-object';
