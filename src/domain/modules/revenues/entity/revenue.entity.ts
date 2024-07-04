@@ -41,7 +41,7 @@ export class Revenue {
     Object.assign(this, expense);
   }
 
-  static create(expense: RevenueProps) {
+  static create(expense: RevenueProps): Revenue {
     const account = Account.create({
       id: expense.account.getId(),
       name: expense.account.getName(),

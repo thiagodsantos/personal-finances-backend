@@ -7,5 +7,5 @@ export abstract class ValueObject {
     return false;
   }
 
-  abstract getValue(): any;
+  abstract getValue(): unknown;
 }

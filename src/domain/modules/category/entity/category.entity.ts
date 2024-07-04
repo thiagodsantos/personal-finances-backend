@@ -17,7 +17,7 @@ export class Category {
     Object.assign(this, category);
   }
 
-  static create(category: CategoryProps) {
+  static create(category: CategoryProps): Category {
     return new Category({
       ...category,
       subCategories: SubCategory.mapMany(category.subCategories ?? [])
