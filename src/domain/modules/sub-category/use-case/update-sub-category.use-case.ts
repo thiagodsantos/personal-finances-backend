@@ -1,5 +1,5 @@
 import { SubCategory } from '@domain/modules/sub-category/entity/sub-category.entity';
 
-export interface UpdateSubCategoryUseCase {
-  execute(subCategory: SubCategory): Promise<void>;
+export abstract class UpdateSubCategoryUseCase {
+  abstract execute(subCategory: SubCategory): Promise<void>;
 }

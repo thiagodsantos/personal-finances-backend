@@ -1,10 +1,10 @@
-import { Id } from '@domain/value-objects/id.value-object';
 import { Account } from '../entity/account.entity';
+import { Id } from '@domain/value-objects/id.value-object';
 
-export interface AccountRepository {
-  create(account: Account): Promise<void>;
-  delete(accountId: Id): Promise<void>;
-  getById(accountId: Id): Promise<Account>;
-  list(): Promise<Account[]>;
-  update(account: Account): Promise<void>;
+export abstract class AccountRepository {
+  abstract create(account: Account): Promise<void>;
+  abstract delete(accountId: Id): Promise<void>;
+  abstract getById(accountId: Id): Promise<Account>;
+  abstract list(): Promise<Account[]>;
+  abstract update(account: Account): Promise<void>;
 }

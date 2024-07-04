@@ -3,7 +3,7 @@ import { DeleteCategoryUseCase } from '@domain/modules/category/use-case/delete-
 
 import { Id } from '@domain/value-objects/id.value-object';
 
-export class DeleteCategoryUseCaseImpl implements DeleteCategoryUseCase {
+export class DeleteCategoryUseCaseImpl extends DeleteCategoryUseCase {
   constructor(private readonly categoryRepository: CategoryRepository) {}
 
   public async execute(categoryId: Id): Promise<void> {

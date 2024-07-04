@@ -1,5 +1,5 @@
 import { Revenue } from '@domain/modules/revenues/entity/revenue.entity';
 
-export interface CreateRevenueUseCase {
-  execute(revenue: Revenue): Promise<void>;
+export abstract class CreateRevenueUseCase {
+  abstract execute(revenue: Revenue): Promise<void>;
 }
