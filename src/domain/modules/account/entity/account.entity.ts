@@ -1,4 +1,4 @@
-import { Id } from "@domain/value-objects/id.value-object";
+import { Id } from '@domain/value-objects/id.value-object';
 import { Name } from '@domain/value-objects/name.value-object';
 
 export enum AccountType {

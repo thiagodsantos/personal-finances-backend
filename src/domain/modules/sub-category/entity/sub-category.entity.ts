@@ -22,11 +22,13 @@ export class SubCategory {
   }
 
   static mapMany(subCategories: SubCategory[]): SubCategory[] {
-    return subCategories.map((subCategory) => SubCategory.create({
-      description: subCategory.getDescription(),
-      id: subCategory.getId(),
-      name: subCategory.getName(),
-    }));
+    return subCategories.map((subCategory) =>
+      SubCategory.create({
+        description: subCategory.getDescription(),
+        id: subCategory.getId(),
+        name: subCategory.getName(),
+      })
+    );
   }
 
   getDescription(): Text | undefined {

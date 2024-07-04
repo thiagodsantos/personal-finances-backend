@@ -1,16 +1,20 @@
+import { Id } from '@domain/value-objects/id.value-object';
+import { Name } from '@domain/value-objects/name.value-object';
+import { Text } from '@domain/value-objects/text.value-object';
+
 import { SubCategory } from '@domain/modules/sub-category/entity/sub-category.entity';
 
 export interface CategoryProps {
-  id: string;
-  name: string;
-  description?: string;
+  description?: Text;
+  id: Id;
+  name: Name;
   subCategories?: SubCategory[];
 }
 
 export class Category {
-  private readonly id: string;
-  private readonly name: string;
-  private readonly description?: string;
+  private readonly description?: Text;
+  private readonly id: Id;
+  private readonly name: Name;
   private readonly subCategories?: SubCategory[];
 
   private constructor(category: CategoryProps) {
@@ -20,19 +24,19 @@ export class Category {
   static create(category: CategoryProps): Category {
     return new Category({
       ...category,
-      subCategories: SubCategory.mapMany(category.subCategories ?? [])
-    })
+      subCategories: SubCategory.mapMany(category.subCategories ?? []),
+    });
   }
 
-  getDescription(): string | undefined {
+  getDescription(): Text | undefined {
     return this.description;
   }
 
-  getId(): string {
+  getId(): Id {
     return this.id;
   }
 
-  getName(): string {
+  getName(): Name {
     return this.name;
   }
 

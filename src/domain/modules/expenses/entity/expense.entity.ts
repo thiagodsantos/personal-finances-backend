@@ -52,7 +52,7 @@ export class Expense {
       id: expense.category.getId(),
       name: expense.category.getName(),
       description: expense.category.getDescription(),
-      subCategories: expense.category.getSubCategories()
+      subCategories: expense.category.getSubCategories(),
     });
 
     return new Expense({
@@ -103,6 +103,6 @@ export class Expense {
   }
 
   getTotals(expenses: Expense[]): Money {
-    return Money.sum(expenses.map(expense => expense.getAmount()));
+    return Money.sum(expenses.map((expense) => expense.getAmount()));
   }
 }

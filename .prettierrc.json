@@ -1,5 +1,9 @@
 {
-    "extends": ["prettier/@typescript-eslint"],
-    "singleQuote": true,
-    "trailingComma": "all"
-  }
+  "printWidth": 100,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "semi": true,
+  "bracketSpacing": true,
+  "arrowParens": "always"
+}
