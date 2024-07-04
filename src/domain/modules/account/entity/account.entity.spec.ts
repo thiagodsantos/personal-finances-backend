@@ -1,5 +1,5 @@
+import { Account, AccountType } from '@domain/modules/account/entity/account.entity';
 import { Id } from '@domain/value-objects/id.value-object';
-import { Account, AccountType } from './account.entity';
 import { Name } from '@domain/value-objects/name.value-object';
 
 export const createAccountMock = (overrides: Partial<Account> = {}): Account =>

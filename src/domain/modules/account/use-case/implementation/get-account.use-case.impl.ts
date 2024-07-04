@@ -8,7 +8,7 @@ export class GetAccountUseCaseImpl extends GetAccountUseCase {
     super();
   }
 
-  public async execute(accountId: Id): Promise<Account> {
+  public async execute(accountId: Id): Promise<Account | null> {
     return await this.accountRepository.getById(accountId);
   }
 }

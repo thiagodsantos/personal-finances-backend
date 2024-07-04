@@ -1,4 +1,4 @@
-import { DeleteSubCategoryUseCase } from '../delete-revenue.use-case';
+import { DeleteSubCategoryUseCase } from '@domain/modules/sub-category/use-case/delete-sub-category.use-case';
 import { Id } from '@domain/value-objects/id.value-object';
 import { SubCategoryNotFoundError } from '@domain/modules/sub-category/error/sub-category-not-found.error';
 import { SubCategoryRepository } from '@domain/modules/sub-category/repository/sub-category.repository';

@@ -2,7 +2,7 @@ import { createAccountMock } from '@domain/modules/account/entity/account.entity
 import { createCategoryMock } from '@domain/modules/category/entity/category.entity.spec';
 
 import { CustomDate } from '@domain/value-objects/custom-date.value-object';
-import { Expense, ExpenseFrequency } from './expense.entity';
+import { Expense, ExpenseFrequency } from '@domain/modules/expenses/entity/expense.entity';
 import { Flag } from '@domain/value-objects/flag.value-object';
 import { Id } from '@domain/value-objects/id.value-object';
 import { Money } from '@domain/value-objects/money.value-object';

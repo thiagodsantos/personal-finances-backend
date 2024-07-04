@@ -1,4 +1,4 @@
-import { Url } from './url.value-object';
+import { Url } from '@domain/value-objects/url.value-object';
 
 describe('UrlValueObject', () => {
   it('should create a valid url', () => {
