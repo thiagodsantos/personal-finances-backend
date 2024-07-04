@@ -14,14 +14,21 @@ export const createCategory = Category.create({
 });
 
 describe('CategoryEntity', () => {
-  it('should getters return values', () => {
-    const category = createCategory;
+  it.each`
+    id                                   | name                                   | description                                    | subCategories
+    ${createCategory.getId().getValue()} | ${createCategory.getName().getValue()} | ${createCategory.getDescription()?.getValue()} | ${undefined}
+    ${createCategory.getId().getValue()} | ${createCategory.getName().getValue()} | ${createCategory.getDescription()?.getValue()} | ${[createSubCategoryMock()]}
+  `('should create a valid category', ({ id, name, description, subCategories }) => {
+    const category = Category.create({
+      description: Text.create(description),
+      id: Id.create(id),
+      name: Name.create(name),
+      subCategories,
+    });
 
-    expect(category.getId().getValue()).toBe(createCategory.getId().getValue());
-    expect(category.getName().getValue()).toBe(createCategory.getName().getValue());
-    expect(category.getDescription()?.getValue()).toBe(createCategory.getDescription()?.getValue());
-    expect(category.getSubCategories()?.[0].getId().getValue()).toBe(
-      createCategory.getSubCategories()?.[0].getId().getValue()
-    );
+    expect(category.getId().getValue()).toBe(id);
+    expect(category.getName().getValue()).toBe(name);
+    expect(category.getDescription()?.getValue()).toBe(description);
+    expect(category.getSubCategories()).toEqual(subCategories ?? []);
   });
 });

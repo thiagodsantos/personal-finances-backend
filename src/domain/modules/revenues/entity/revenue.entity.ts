@@ -1,6 +1,6 @@
 import { Account } from '@domain/modules/account/entity/account.entity';
 import { Category } from '@domain/modules/category/entity/category.entity';
-import { Date } from '@domain/value-objects/date.value-object';
+import { CustomDate } from '@domain/value-objects/date.value-object';
 import { Flag } from '@domain/value-objects/flag.value-object';
 import { Id } from '@domain/value-objects/id.value-object';
 import { Money } from '@domain/value-objects/money.value-object';
@@ -16,7 +16,7 @@ export class RevenueProps {
   account: Account;
   amount: Money;
   category: Category;
-  date: Date;
+  date: CustomDate;
   description: Text;
   id: Id;
   received: Flag;
@@ -29,7 +29,7 @@ export class Revenue {
   private readonly account: Account;
   private readonly amount: Money;
   private readonly category: Category;
-  private readonly date: Date;
+  private readonly date: CustomDate;
   private readonly description: Text;
   private readonly id: Id;
   private readonly received: Flag;
@@ -74,7 +74,7 @@ export class Revenue {
     return this.category;
   }
 
-  getDate(): Date {
+  getDate(): CustomDate {
     return this.date;
   }
 
