@@ -33,5 +33,7 @@ describe('UpdateCategoryUseCaseImpl', () => {
     await expect(updateCategoryUseCaseImpl.execute(category)).rejects.toThrow(
       CategoryNotFoundError
     );
+    expect(categoryRepository.getById).toHaveBeenCalledWith(category.getId());
+    expect(categoryRepository.update).not.toHaveBeenCalled();
   });
 });

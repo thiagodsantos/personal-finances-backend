@@ -33,6 +33,10 @@ describe('DeleteCategoryUseCaseImpl', () => {
 
     categoryRepository.getById.mockResolvedValue(null);
 
-    await expect(deleteCategoryUseCaseImpl.execute(categoryId)).rejects.toThrow(CategoryNotFoundError);
+    await expect(deleteCategoryUseCaseImpl.execute(categoryId)).rejects.toThrow(
+      CategoryNotFoundError
+    );
+    expect(categoryRepository.getById).toHaveBeenCalledWith(categoryId);
+    expect(categoryRepository.deleteById).not.toHaveBeenCalled();
   });
 });

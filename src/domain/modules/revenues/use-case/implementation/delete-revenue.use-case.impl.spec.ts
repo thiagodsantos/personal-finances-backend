@@ -33,5 +33,6 @@ describe('DeleteRevenueUseCaseImpl', () => {
       RevenueNotFoundError
     );
     expect(revenueRepository.getById).toHaveBeenCalledWith(revenue.getId());
+    expect(revenueRepository.deleteById).not.toHaveBeenCalled();
   });
 });

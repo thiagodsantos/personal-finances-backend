@@ -31,5 +31,6 @@ describe('UpdateRevenueUseCaseImpl', () => {
 
     await expect(updateRevenueUseCaseImpl.execute(revenue)).rejects.toThrow(RevenueNotFoundError);
     expect(revenueRepository.getById).toHaveBeenCalledWith(revenue.getId());
+    expect(revenueRepository.update).not.toHaveBeenCalled();
   });
 });

@@ -26,12 +26,12 @@ describe('DeleteAccountUseCaseImpl', () => {
   });
 
   it('should throw AccountNotFoundError when account does not exist', async () => {
+    const accountId = Id.create('test_id');
+
     accountRepositoryMock.getById.mockResolvedValue(null);
 
-    await expect(deleteAccountUseCaseImpl.execute(Id.create('test_id'))).rejects.toThrow(
-      AccountNotFoundError
-    );
-
+    await expect(deleteAccountUseCaseImpl.execute(accountId)).rejects.toThrow(AccountNotFoundError);
+    expect(accountRepositoryMock.getById).toHaveBeenCalledWith(accountId);
     expect(accountRepositoryMock.deleteById).not.toHaveBeenCalled();
   });
 });

@@ -22,4 +22,14 @@ describe('UpdateSubCategoryUseCaseImpl', () => {
     expect(subCategoryRepository.getById).toHaveBeenCalledWith(subCategory.getId());
     expect(subCategoryRepository.update).toHaveBeenCalledWith(subCategory);
   });
+
+  it('should throw an error if sub-category does not exist', async () => {
+    const subCategory = createSubCategoryMock();
+
+    subCategoryRepository.getById.mockResolvedValue(null);
+
+    await expect(updateSubCategoryUseCaseImpl.execute(subCategory)).rejects.toThrow(Error);
+    expect(subCategoryRepository.getById).toHaveBeenCalledWith(subCategory.getId());
+    expect(subCategoryRepository.update).not.toHaveBeenCalled();
+  });
 });

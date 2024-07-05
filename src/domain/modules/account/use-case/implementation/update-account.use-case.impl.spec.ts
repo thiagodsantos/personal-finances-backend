@@ -25,12 +25,12 @@ describe('UpdateAccountUseCaseImpl', () => {
   });
 
   it('should throw AccountNotFoundError when account does not exist', async () => {
+    const account = createAccountMock();
+
     accountRepositoryMock.getById.mockResolvedValue(null);
 
-    await expect(updateAccountUseCaseImpl.execute(createAccountMock())).rejects.toThrow(
-      AccountNotFoundError
-    );
-
+    await expect(updateAccountUseCaseImpl.execute(account)).rejects.toThrow(AccountNotFoundError);
+    expect(accountRepositoryMock.getById).toHaveBeenCalledWith(account.getId());
     expect(accountRepositoryMock.update).not.toHaveBeenCalled();
   });
 });

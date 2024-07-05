@@ -32,5 +32,7 @@ describe('DeleteSubCategoryUseCaseImpl', () => {
     await expect(deleteSubCategoryUseCaseImpl.execute(subCategory.getId())).rejects.toThrow(
       SubCategoryNotFoundError
     );
+    expect(subCategoryRepository.getById).toHaveBeenCalledWith(subCategory.getId());
+    expect(subCategoryRepository.deleteById).not.toHaveBeenCalled();
   });
 });
