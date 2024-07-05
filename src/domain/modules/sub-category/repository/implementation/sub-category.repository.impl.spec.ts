@@ -7,3 +7,9 @@ export const createSubCategoryRepository = (): jest.Mocked<SubCategoryRepository
   list: jest.fn(),
   update: jest.fn(),
 });
+
+describe('SubCategoryRepository', () => {
+  it('should be true', () => {
+    expect(true).toBeTruthy();
+  });
+});

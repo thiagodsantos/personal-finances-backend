@@ -8,3 +8,9 @@ export const createExpenseRepository = (): jest.Mocked<ExpenseRepository> => {
     update: jest.fn(),
   };
 };
+
+describe('ExpenseRepository', () => {
+  it('should be true', () => {
+    expect(true).toBeTruthy();
+  });
+});

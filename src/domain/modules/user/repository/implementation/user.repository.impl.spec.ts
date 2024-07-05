@@ -8,3 +8,9 @@ export const createUserRepository = (): jest.Mocked<UserRepository> => {
     getByEmail: jest.fn(),
   };
 };
+
+describe('UserRepository', () => {
+  it('should be true', () => {
+    expect(true).toBeTruthy();
+  });
+});

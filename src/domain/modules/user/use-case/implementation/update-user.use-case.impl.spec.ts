@@ -16,15 +16,17 @@ describe('UpdateUserUseCaseImpl', () => {
   it('should update a user', async () => {
     const user = createUserMock();
 
+    userRepository.getById.mockResolvedValue(user);
+
     await updateUserUseCase.execute(user);
 
     expect(userRepository.update).toHaveBeenCalledWith(user);
   });
 
   it('should throw an error if user does not exist', async () => {
-    userRepository.getById.mockResolvedValue(null);
-
     const user = createUserMock();
+
+    userRepository.getById.mockResolvedValue(null);
 
     await expect(updateUserUseCase.execute(user)).rejects.toThrow(UserNotFoundError);
     expect(userRepository.getById).toHaveBeenCalledWith(user.getId());

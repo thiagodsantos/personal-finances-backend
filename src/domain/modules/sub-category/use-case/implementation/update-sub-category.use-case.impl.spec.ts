@@ -1,4 +1,5 @@
 import { createSubCategoryMock } from '@domain/modules/sub-category/entity/sub-category.entity.spec';
+import { SubCategoryNotFoundError } from '@domain/modules/sub-category/error/sub-category-not-found.error';
 import { createSubCategoryRepository } from '@domain/modules/sub-category/repository/implementation/sub-category.repository.impl.spec';
 import { SubCategoryRepository } from '@domain/modules/sub-category/repository/sub-category.repository';
 import { UpdateSubCategoryUseCaseImpl } from '@domain/modules/sub-category/use-case/implementation/update-sub-category.use-case.impl';
@@ -28,7 +29,9 @@ describe('UpdateSubCategoryUseCaseImpl', () => {
 
     subCategoryRepository.getById.mockResolvedValue(null);
 
-    await expect(updateSubCategoryUseCaseImpl.execute(subCategory)).rejects.toThrow(Error);
+    await expect(updateSubCategoryUseCaseImpl.execute(subCategory)).rejects.toThrow(
+      SubCategoryNotFoundError
+    );
     expect(subCategoryRepository.getById).toHaveBeenCalledWith(subCategory.getId());
     expect(subCategoryRepository.update).not.toHaveBeenCalled();
   });

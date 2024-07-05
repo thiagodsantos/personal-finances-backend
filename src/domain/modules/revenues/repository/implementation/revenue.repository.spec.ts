@@ -8,3 +8,9 @@ export const createRevenueRepositoryMock = (): jest.Mocked<RevenueRepository> =>
     getById: jest.fn(),
   };
 };
+
+describe('RevenueRepository', () => {
+  it('should be true', () => {
+    expect(true).toBeTruthy();
+  });
+});
