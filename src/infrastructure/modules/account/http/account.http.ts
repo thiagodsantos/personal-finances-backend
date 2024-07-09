@@ -1,27 +1,20 @@
-import { ExpressExceptionHandler } from '@common/http/decorator/error.decorator';
 import { account } from '@container/modules/account/account.container';
-import { Account } from '@domain/modules/account/entity/account.entity';
+import { CreateAccountRequest } from '@infrastructure/modules/account/http/account.request';
+import { CreateAccountRequestMapper } from '@infrastructure/modules/account/http/mapper/to-entity/create-account.request.mapper';
+import { CreateAccountResponse } from '@infrastructure/modules/account/http/account.response';
 import { CreateAccountUseCase } from '@domain/modules/account/use-case/create-account.use-case';
-import { Id } from '@domain/value-objects/id.value-object';
-import { Name } from '@domain/value-objects/name.value-object';
+import { ExpressExceptionHandler } from '@common/http/decorator/error.decorator';
+import { Injectable } from '@common/container/decorator/injectable.decorator';
 
-import {
-  CreateAccountRequest,
-  CreateAccountResponse,
-} from '@infrastructure/modules/account/http/account.request';
-
+@Injectable()
 export class AccountHttp {
-  private readonly createAccountUseCase = account.resolve(CreateAccountUseCase);
+  constructor(private readonly createAccountUseCase: CreateAccountUseCase) {
+    this.createAccountUseCase = account.resolve(CreateAccountUseCase, createAccountUseCase);
+  }
 
   @ExpressExceptionHandler()
   public async createAccount(req: CreateAccountRequest, res: CreateAccountResponse): Promise<void> {
-    const { name, id, type } = req.body;
-
-    const account = Account.create({
-      id: Id.create(id),
-      name: Name.create(name),
-      type: type,
-    });
+    const account = CreateAccountRequestMapper.toAccount(req);
 
     await this.createAccountUseCase.execute(account);
 

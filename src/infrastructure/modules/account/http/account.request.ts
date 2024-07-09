@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import { Request } from 'express';
 
 import { AccountType } from '@domain/modules/account/entity/account.entity';
 
@@ -11,5 +11,3 @@ interface CreateAccountRequestBody {
 export interface CreateAccountRequest extends Request {
   body: CreateAccountRequestBody;
 }
-
-export interface CreateAccountResponse extends Response {}

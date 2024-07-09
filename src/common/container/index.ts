@@ -20,7 +20,11 @@ class Container {
     this.registrations.set(identifier, implementation);
   }
 
-  resolve<T>(abstract: AbstractConstructor<T> | string): T {
+  resolve<T>(abstract: AbstractConstructor<T> | string, instance?: T): T {
+    if (instance) {
+      return instance;
+    }
+
     const identifier = this.getIdentifier(abstract);
 
     const implementation = this.registrations.get(identifier);
