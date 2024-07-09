@@ -1,8 +1,8 @@
 /* eslint-disable */
 import 'reflect-metadata';
 
-type Constructor<T> = new (...args: any[]) => T;
-type AbstractConstructor<T> = abstract new (...args: any[]) => T;
+export type Constructor<T> = new (...args: any[]) => T;
+export type AbstractConstructor<T> = abstract new (...args: any[]) => T;
 
 class Container {
   private registrations = new Map<string, Constructor<any>>();

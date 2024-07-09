@@ -1,25 +1,13 @@
 import express, { Application } from 'express';
+import { Router, RouterProps } from '@common/http/router';
 
-interface RouterProps {
-  port: number;
-  name: string;
-}
-
-export class Router {
+export class ExpressRouter extends Router {
   public app: Application;
-  public name: string;
-  public port: number;
 
   constructor(routerProps: RouterProps) {
+    super(routerProps);
+
     this.app = express();
-
-    this.name = routerProps.name;
-    this.port = routerProps.port;
-
-    this.initializeMiddlewares();
-  }
-
-  private initializeMiddlewares(): void {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
   }

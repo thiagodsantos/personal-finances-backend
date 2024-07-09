@@ -1,11 +1,10 @@
-/* eslint-disable */
 import { Request, Response, NextFunction } from 'express';
 
 import { DomainError } from '@domain/error/domain.error';
 import { ValueObjectError } from '@domain/value-objects/error/value-object.error';
 
-export function ExpressExceptionHandler(): MethodDecorator {
-  return function (target: any, propertyKey: string | symbol, descriptor: PropertyDescriptor) {
+export default function expressErrorHandler(): MethodDecorator {
+  return function (_: unknown, propertyKey: string | symbol, descriptor: PropertyDescriptor) {
     const originalMethod = descriptor.value;
 
     descriptor.value = async function (req: Request, res: Response, next: NextFunction) {

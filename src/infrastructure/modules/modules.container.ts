@@ -1,5 +1,5 @@
 import { container } from '@common/container';
-import { account } from '@container/modules/account/account.container';
+import { account } from '@infrastructure/modules/account/account.container';
 
 container.add(account);
 
