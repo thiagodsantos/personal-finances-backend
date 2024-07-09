@@ -7,7 +7,7 @@ export class Money implements ValueObject {
     if (value < 0) {
       throw new Error('Invalid money');
     }
-    
+
     return new Money(value);
   }
 
