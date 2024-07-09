@@ -1,8 +1,7 @@
 import { Id } from '@domain/value-objects/id.value-object';
 import { Name } from '@domain/value-objects/name.value-object';
-import { Text } from '@domain/value-objects/text.value-object';
-
 import { SubCategory } from '@domain/modules/sub-category/entity/sub-category.entity';
+import { Text } from '@domain/value-objects/text.value-object';
 
 export interface CategoryProps {
   description?: Text;

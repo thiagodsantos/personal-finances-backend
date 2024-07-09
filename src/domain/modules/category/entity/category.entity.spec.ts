@@ -1,7 +1,5 @@
 import { Category } from '@domain/modules/category/entity/category.entity';
-
 import { createSubCategoryMock } from '@domain/modules/sub-category/entity/sub-category.entity.spec';
-
 import { Id } from '@domain/value-objects/id.value-object';
 import { Name } from '@domain/value-objects/name.value-object';
 import { Text } from '@domain/value-objects/text.value-object';

@@ -1,11 +1,15 @@
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import pluginJs from '@eslint/js';
-import eslintConfigPrettier from "eslint-plugin-prettier/recommended";
+import eslintConfigPrettier from 'eslint-plugin-prettier/recommended';
+import importPlugin from 'eslint-plugin-import';
 
 export default [
   {
     files: ['src/**/*.ts'],
+    plugins: {
+      import: importPlugin,
+    },
     rules: {
       'no-console': 'off',
       'no-useless-constructor': 'off',
@@ -41,6 +45,41 @@ export default [
         {
           selector: ['enumMember'],
           format: ['UPPER_CASE'],
+        },
+      ],
+
+      'import/order': [
+        'error',
+        {
+          'newlines-between': 'always-and-inside-groups',
+          groups: [
+            ['builtin', 'external', 'internal'],
+            ['sibling', 'parent', 'index'],
+            ['object', 'type'],
+          ],
+          pathGroups: [
+            {
+              pattern: '@container/**',
+              group: 'internal',
+              position: 'before',
+            },
+            {
+              pattern: '@domain/**/modules/**',
+              group: 'internal',
+              position: 'before',
+            },
+            {
+              pattern: '@domain/**/value-objects/**',
+              group: 'internal',
+              position: 'before',
+            },
+            {
+              pattern: '@infrastructure/**',
+              group: 'internal',
+              position: 'before',
+            },
+          ],
+          pathGroupsExcludedImportTypes: ['builtin', 'external'],
         },
       ],
     },

@@ -1,11 +1,12 @@
 import { ValueObject } from '@domain/value-objects/@value-object';
+import { ValueObjectError } from '@domain/value-objects/error/value-object.error';
 
 export class Email implements ValueObject {
   private constructor(private readonly value: string) {}
 
   public static create(email: string): Email {
     if (!Email.isValid(email)) {
-      throw new Error('Invalid email');
+      throw new ValueObjectError('Invalid email');
     }
 
     return new Email(email);

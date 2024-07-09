@@ -21,8 +21,10 @@
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "paths": {
+      "@common/*": ["common/*"],
+      "@container/*": ["container/*"],
       "@domain/*": ["domain/*"],
-      "@common/*": ["common/*"]
+      "@infrastructure/*": ["infrastructure/*"]
     }
   },
   "include": ["src/**/*.ts", "test/**/*.ts", "jest.config.js"]

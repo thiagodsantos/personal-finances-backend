@@ -1,6 +1,5 @@
 import { createAccountMock } from '@domain/modules/account/entity/account.entity.spec';
 import { createCategoryMock } from '@domain/modules/category/entity/category.entity.spec';
-
 import { CustomDate } from '@domain/value-objects/custom-date.value-object';
 import { Flag } from '@domain/value-objects/flag.value-object';
 import { Id } from '@domain/value-objects/id.value-object';

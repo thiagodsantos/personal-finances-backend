@@ -1,8 +1,7 @@
-import { User } from '@domain/modules/user/entity/user.entity';
-
 import { Email } from '@domain/value-objects/email.value-object';
 import { Id } from '@domain/value-objects/id.value-object';
 import { Name } from '@domain/value-objects/name.value-object';
+import { User } from '@domain/modules/user/entity/user.entity';
 
 export const createUserMock = (overrides: Partial<User> = {}): User =>
   User.create({
@@ -18,8 +17,8 @@ describe('UserEntity', () => {
   it('should create a valid user', () => {
     const user = createUserMock();
 
+    expect(user.getEmail().getValue()).toBe(userMock.getEmail().getValue());
     expect(user.getId().getValue()).toBe(userMock.getId().getValue());
     expect(user.getName().getValue()).toBe(userMock.getName().getValue());
-    expect(user.getEmail().getValue()).toBe(userMock.getEmail().getValue());
   });
 });

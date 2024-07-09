@@ -1,5 +1,4 @@
-import { Injectable } from '@common/di/container/decorator/injectable';
-
+import { Injectable } from '@common/container/decorator/injectable.decorator';
 import { Account } from '@domain/modules/account/entity/account.entity';
 import { AccountRepository } from '@domain/modules/account/repository/account.repository';
 import { CreateAccountUseCase } from '@domain/modules/account/use-case/create-account.use-case';
